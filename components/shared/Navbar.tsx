@@ -2,33 +2,18 @@
 
 import Image from 'next/image';
 import React from 'react';
-import { usePathname } from 'next/navigation';
 import { seekerNavbar, employerNavbar } from '@/constants';
 import Link from 'next/link';
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { BellIcon, SearchIcon } from 'lucide-react';
+import ProfileDropDown from './ProfileDropDown';
+import { useUserType } from '@/hooks/useUserType';
 
 const Navbar = () => {
-  const pathName = usePathname();
-
-  const getNavbarType = () => {
-    if (pathName.includes("/employer") || pathName.includes("/(employer)") || pathName.startsWith("/employer")) {
-      return "employer";
-    };
-
-    if (pathName.includes("/seeker") || pathName.includes("/(seeker)") || pathName.startsWith("/seeker") || pathName.includes("/(loading)/page")) {
-      return "seeker";
-    };
-
-    //set default to seeker for other routes
-    return "seeker";
-  };
-
-  const navbarType = getNavbarType();
-  const navbarLinks = navbarType === "employer" ? employerNavbar : seekerNavbar;
-
-  const isSigned = false;
+  const userType = useUserType();
+  const navbarLinks = userType === "employer" ? employerNavbar : seekerNavbar;
+  const isSigned = true;
 
   return (
     <nav className='flex w-[95%] flex-row justify-between items-center bg-white py-3 px-9 rounded-xl mt-4'>
@@ -56,12 +41,16 @@ const Navbar = () => {
         <div className='flex flex-row gap-3'>
           <SearchIcon className='cursor-pointer' />
           <BellIcon className='cursor-pointer' />
-          <h2 className='text-base font-semibold cursor-pointer'>Employer</h2>
+          <h2 className='text-base font-semibold cursor-pointer'>
+            {userType === "employer" ? "Job Seeker" : "Employer"}
+          </h2>
         </div>
         <Separator className='bg-black w-2' orientation="vertical" />
         <div className='flex'>
           {isSigned
-            ? <></>
+            ? <>
+              <ProfileDropDown />
+            </>
             : <>
               <Button className='bg-[color:var(--main)] hover:bg-[color:var(--auxiliary)]' size="sm">
                 Sign Up

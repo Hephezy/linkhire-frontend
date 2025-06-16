@@ -1,4 +1,4 @@
-import { NavbarLink } from "@/types";
+import { DropDown, NavbarLink } from "@/types";
 
 export const seekerNavbar: NavbarLink[] = [
   {
@@ -39,5 +39,63 @@ export const employerNavbar: NavbarLink[] = [
   {
     route: "/pricing",
     label: "Pricing",
+  },
+];
+
+export const seekerDropdown: DropDown[] = [
+  {
+    label: "Dashboard",
+    path: "",
+  },
+  {
+    label: "My Resume",
+    path: "",
+  },
+  {
+    label: "Notification",
+    path: "",
+  },
+  {
+    label: "Message",
+    path: "",
+  },
+  {
+    label: "Account Setting",
+    path: "",
+  },
+  {
+    label: "Activity",
+    path: "",
+  },
+];
+
+export const employerDropdown: DropDown[] = [
+  {
+    label: "Dashboard",
+    path: "",
+  },
+  {
+    label: "Employer Profile",
+    path: "",
+  },
+  {
+    label: "Post Job",
+    path: "",
+  },
+  {
+    label: "Notification",
+    path: "",
+  },
+  {
+    label: "Message",
+    path: "",
+  },
+  {
+    label: "Account Setting",
+    path: "",
+  },
+  {
+    label: "Manage Hiring",
+    path: "",
   },
 ];
