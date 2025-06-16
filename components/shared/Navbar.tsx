@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import { seekerNavbar } from '@/constants';
+import { seekerNavbar, employerNavbar } from '@/constants';
 import Link from 'next/link';
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
@@ -11,6 +11,22 @@ import { BellIcon, SearchIcon } from 'lucide-react';
 
 const Navbar = () => {
   const pathName = usePathname();
+
+  const getNavbarType = () => {
+    if (pathName.includes("/employer") || pathName.includes("/(employer)") || pathName.startsWith("/employer")) {
+      return "employer";
+    };
+
+    if (pathName.includes("/seeker") || pathName.includes("/(seeker)") || pathName.startsWith("/seeker") || pathName.includes("/(loading)/page")) {
+      return "seeker";
+    };
+
+    //set default to seeker for other routes
+    return "seeker";
+  };
+
+  const navbarType = getNavbarType();
+  const navbarLinks = navbarType === "employer" ? employerNavbar : seekerNavbar;
 
   const isSigned = false;
 
@@ -25,7 +41,7 @@ const Navbar = () => {
         />
       </div>
       <div className='hidden lg:flex gap-12 md:gap-8 items-center'>
-        {seekerNavbar.map((item) => (
+        {navbarLinks.map((item) => (
           <Link
             key={item.label}
             href={item.route}
@@ -36,18 +52,18 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
-      <div className='flex flex-row items-center gap-6 justify-between'>
+      <div className='flex h-5 flex-row items-center gap-6 justify-between'>
         <div className='flex flex-row gap-3'>
           <SearchIcon className='cursor-pointer' />
           <BellIcon className='cursor-pointer' />
           <h2 className='text-base font-semibold cursor-pointer'>Employer</h2>
         </div>
-        <Separator className='bg-black' orientation="vertical" />
+        <Separator className='bg-black w-2' orientation="vertical" />
         <div className='flex'>
           {isSigned
             ? <></>
             : <>
-              <Button className='bg-[color:var(--main)]' size="sm">
+              <Button className='bg-[color:var(--main)] hover:bg-[color:var(--auxiliary)]' size="sm">
                 Sign Up
               </Button>
             </>
