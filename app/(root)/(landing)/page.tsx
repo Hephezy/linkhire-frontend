@@ -1,10 +1,13 @@
+import Category from "@/components/seeker/Category";
+import NewJobs from "@/components/seeker/NewJobs";
 
 export default function Home() {
   return (
-    <div className="">
-      <main className="">
-        <h1 className="text-3xl text-center text-[color:var(--main)] font-bold">LinkHire - Where Talent Meets Opportunity.</h1>
-      </main>
-    </div>
+    <section className="flex w-[95%]">
+      <div className="flex flex-col w-full mt-6">
+        <Category />
+        <NewJobs />
+      </div>
+    </section>
   );
-}
+};
