@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import { Card } from '../ui/card';
 
 interface Props {
   image: string;
@@ -7,9 +8,9 @@ interface Props {
   achievement: string;
 };
 
-const CategoryCards = ({ image, title, achievement }: Props) => {
+const CategoryCard = ({ image, title, achievement }: Props) => {
   return (
-    <div className='border flex flex-row p-2 items-center gap-6 border-[#757575]'>
+    <Card className='flex flex-row p-2 items-center gap-6'>
       <div className='p-2 bg-[#F4F4F4]'>
         <Image
           src={image}
@@ -22,8 +23,8 @@ const CategoryCards = ({ image, title, achievement }: Props) => {
         <h2 className='text-md font-semibold'>{title}</h2>
         <p className='text-sm font-medium'>{achievement} jobs available</p>
       </div>
-    </div>
+    </Card>
   );
 };
 
-export default CategoryCards;
+export default CategoryCard;

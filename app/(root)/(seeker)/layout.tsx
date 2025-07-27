@@ -1,7 +1,6 @@
 import Footer from "@/components/shared/Footer";
-import Header from "@/components/shared/Header";
-import Navbar from "@/components/shared/Navbar";
-
+import SeekerHeader from "@/components/shared/Header/SeekerHeader";
+import SeekerNavbar from "@/components/shared/Navbar/SeekerNavbar";
 
 export default function LandingLayout({
   children,
@@ -11,8 +10,8 @@ export default function LandingLayout({
   return (
     <div className="flex flex-col w-full justify-center items-center">
       <div className="bg-[color:var(--accentTwo)] w-full flex flex-col justify-center items-center">
-        <Navbar />
-        <Header />
+        <SeekerNavbar />
+        <SeekerHeader />
       </div>
       {children}
       <Footer />

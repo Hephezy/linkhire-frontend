@@ -1,6 +1,6 @@
 import { demoCategoryCard } from '@/constants'
 import React from 'react'
-import CategoryCards from '../cards/CategoryCard'
+import CategoryCard from '../cards/CategoryCard'
 
 const Category = () => {
   return (
@@ -11,7 +11,7 @@ const Category = () => {
       </div>
       <div className='grid grid-cols-4 gap-4 mt-6'>
         {demoCategoryCard.map((item) => (
-          <CategoryCards
+          <CategoryCard
             key={item.title}
             image={item.image}
             title={item.title}

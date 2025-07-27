@@ -10,13 +10,19 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { seekerDropdown, employerDropdown } from '@/constants';
-import { useUserType } from '@/hooks/useUserType';
+
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { ChevronDown } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
-const ProfileDropDown = () => {
-  const userType = useUserType();
-  const dropdown = userType === "employer" ? employerDropdown : seekerDropdown;
+interface Props {
+  type: string
+}
+
+const ProfileDropDown = ({ type }: Props) => {
+
+  const router = useRouter();
+  const dropdown = type === "employer" ? employerDropdown : seekerDropdown;
 
   return (
     <DropdownMenu>
@@ -34,13 +40,15 @@ const ProfileDropDown = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-48 mt-5" align="center">
         <DropdownMenuGroup>
-          {dropdown.map((item) => (
-            <>
-              <DropdownMenuItem>
+          {dropdown.map((item, index) => (
+            <div key={index}>
+              <DropdownMenuItem
+                onClick={() => { router.push(item.path) }}
+              >
                 {item.label}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-            </>
+            </div>
           ))}
           <DropdownMenuItem>
             Log out

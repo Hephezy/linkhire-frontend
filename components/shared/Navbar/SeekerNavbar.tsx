@@ -2,17 +2,14 @@
 
 import Image from 'next/image';
 import React from 'react';
-import { seekerNavbar, employerNavbar } from '@/constants';
+import { seekerNavbar } from '@/constants';
 import Link from 'next/link';
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { BellIcon, SearchIcon } from 'lucide-react';
-import ProfileDropDown from './ProfileDropDown';
-import { useUserType } from '@/hooks/useUserType';
+import ProfileDropDown from '../ProfileDropDown';
 
-const Navbar = () => {
-  const userType = useUserType();
-  const navbarLinks = userType === "employer" ? employerNavbar : seekerNavbar;
+const SeekerNavbar = () => {
   const isSigned = true;
 
   return (
@@ -26,7 +23,7 @@ const Navbar = () => {
         />
       </div>
       <div className='hidden lg:flex gap-12 md:gap-8 items-center'>
-        {navbarLinks.map((item) => (
+        {seekerNavbar.map((item) => (
           <Link
             key={item.label}
             href={item.route}
@@ -41,15 +38,20 @@ const Navbar = () => {
         <div className='flex flex-row gap-3'>
           <SearchIcon className='cursor-pointer' />
           <BellIcon className='cursor-pointer' />
-          <h2 className='text-base font-semibold cursor-pointer'>
-            {userType === "employer" ? "Job Seeker" : "Employer"}
-          </h2>
+          <Link
+            href="/employer"
+          >
+            <h2 className='text-base font-semibold cursor-pointer'>
+              Employer
+            </h2>
+          </Link>
+
         </div>
         <Separator className='bg-black w-2' orientation="vertical" />
         <div className='flex'>
           {isSigned
             ? <>
-              <ProfileDropDown />
+              <ProfileDropDown type='seeker' />
             </>
             : <>
               <Button className='bg-[color:var(--main)] hover:bg-[color:var(--auxiliary)]' size="sm">
@@ -63,4 +65,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default SeekerNavbar;
