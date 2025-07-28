@@ -5,42 +5,21 @@ import { Card } from '@/components/ui/card';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
-const NameCard = () => {
+const EmailCard = () => {
 
   const [editable, setEditable] = useState(false);
 
   return (
     <Card className="flex flex-col py-4 w-full">
-      <div className="flex flex-row items-center justify-between w-full px-4">
-        <div className="flex flex-row gap-2 items-center">
-          <Image
-            src="/icons/user.png"
-            alt="user"
-            width={32}
-            height={32}
-          />
-          <h2 className='font-bold text-xl'>Full Name</h2>
-        </div>
-
-        {editable
-          ?
-          <>
-
-          </>
-          :
-          <>
-            <Image
-              src="/icons/edit.png"
-              alt="edit"
-              width={32}
-              height={32}
-              onClick={() => setEditable(true)}
-              className='cursor-pointer'
-            />
-          </>
-        }
+      <div className="flex flex-row gap-2 px-4 items-center">
+        <Image
+          src="/icons/account.png"
+          alt="email"
+          width={32}
+          height={32}
+        />
+        <h2 className='font-bold text-xl'>Account</h2>
       </div>
-
       <div>
         {editable
           ?
@@ -69,21 +48,25 @@ const NameCard = () => {
           </>
           :
           <>
-            <div className='flex flex-row px-6 justify-between'>
+            <div className="flex flex-row items-center justify-between w-full px-4">
               <div className='flex flex-col gap-2'>
-                <h2 className='text-lg font-semibold'>First Name</h2>
-                <p className='text-sm font-medium'>John</p>
+                <h2 className='text-lg font-semibold'>Email Address</h2>
+                <p className='text-sm font-medium'>johndoe@gmail.com</p>
               </div>
-              <div className='flex flex-col gap-2 mr-48'>
-                <h2 className='text-lg font-semibold'>Last Name</h2>
-                <p className='text-sm font-medium'>Doe</p>
+              <div>
+                <Button
+                  className='border-[color:var(--main)] border bg-white text-[color:var(--main)] hover:bg-white cursor-pointer'
+                  onClick={() => setEditable(true)}
+                >
+                  Reset Email
+                </Button>
               </div>
             </div>
           </>
         }
       </div>
     </Card>
-  );
-};
+  )
+}
 
-export default NameCard;
+export default EmailCard;

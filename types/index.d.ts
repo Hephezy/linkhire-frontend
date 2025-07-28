@@ -30,3 +30,13 @@ export interface StepsJob {
   title: string;
   description: string;
 }
+
+export interface StatusTab {
+  label: string;
+  value: string;
+}
+
+export interface ApplyStatus {
+  label: string;
+  value: string;
+}

@@ -3,6 +3,7 @@ import {
   DropDown,
   NavbarLink,
   NewJobCard,
+  StatusTab,
   StepsJob,
 } from "@/types";
 
@@ -246,4 +247,23 @@ export const dummyStats = [
   { date: "2025-07-26", views: 2642, applied: 1150 },
   { date: "2025-06-25", views: 900, applied: 250 }, // Previous month
   { date: "2025-05-15", views: 500, applied: 100 }, // Previous year
+];
+
+export const ActivityTab: StatusTab[] = [
+  {
+    label: "Apply Status",
+    value: "apply-status",
+  },
+  {
+    label: "Offered Job",
+    value: "offered-job",
+  },
+  {
+    label: "Saved Job",
+    value: "saved-job",
+  },
+  {
+    label: "Followed Company",
+    value: "followed-company",
+  },
 ];
