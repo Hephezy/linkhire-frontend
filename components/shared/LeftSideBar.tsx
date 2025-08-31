@@ -7,11 +7,10 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 
 const LeftSideBar = () => {
-
   const pathName = usePathname();
 
   return (
-    <section className='bg-white sticky left-0 top-0 flex h-screen flex-col p-4 max-sm:hidden lg:w-[266px]'>
+    <section className='bg-white fixed left-0 top-0 flex h-screen flex-col p-4 max-sm:hidden lg:w-[266px] z-10'>
       <div className='flex items-center justify-center'>
         <Image
           src="/images/logo.png"
@@ -71,4 +70,4 @@ const LeftSideBar = () => {
   )
 };
 
-export default LeftSideBar
+export default LeftSideBar;

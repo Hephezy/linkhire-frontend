@@ -3,6 +3,7 @@ import {
   DropDown,
   NavbarLink,
   NewJobCard,
+  SavedJobs,
   StatusTab,
   StepsJob,
 } from "@/types";
@@ -265,5 +266,59 @@ export const ActivityTab: StatusTab[] = [
   {
     label: "Followed Company",
     value: "followed-company",
+  },
+];
+
+export const ApplicationStatus: StatusTab[] = [
+  {
+    label: "All",
+    value: "all",
+  },
+  {
+    label: "Applied",
+    value: "applied",
+  },
+  {
+    label: "Checked",
+    value: "checked",
+  },
+  {
+    label: "Rejected",
+    value: "rejected",
+  },
+  {
+    label: "Accepted",
+    value: "accepted",
+  },
+  {
+    label: "Interviewed",
+    value: "interviewed",
+  },
+];
+
+export const DemoSavedJobs: SavedJobs[] = [
+  {
+    image: "",
+    jobTitle: "UI/UX Designer",
+    companyName: "Upply",
+    jobType: "Full Time",
+    location: "New York",
+    timeLeft: 3,
+  },
+  {
+    image: "",
+    jobTitle: "Marketing Coordinator",
+    companyName: "Lazada",
+    jobType: "Part Time",
+    location: "New York",
+    timeLeft: 2,
+  },
+  {
+    image: "",
+    jobTitle: "Dog Trainer",
+    companyName: "BMW",
+    jobType: "Full Time",
+    location: "New York",
+    timeLeft: 1,
   },
 ];

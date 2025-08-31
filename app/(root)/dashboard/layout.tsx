@@ -9,10 +9,10 @@ export default function DashboardLayout({
   return (
     <section className="bg-[#F9F9F9] relative p-3 flex flex-row gap-4 w-full">
       <LeftSideBar />
-      <div className="flex flex-col gap-4 w-full">
+      <div className="flex flex-col gap-4 w-full lg:ml-[266px]">
         <DashboardNavbar />
         {children}
       </div>
     </section>
-  )
-};
+  );
+}

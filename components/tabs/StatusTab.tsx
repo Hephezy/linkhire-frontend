@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { ActivityTab } from '@/constants';
+import ApplyStatus from '../activity/ApplyStatus';
 
 const StatusTab = () => {
 
@@ -10,7 +11,7 @@ const StatusTab = () => {
   const renderTabContent = () => {
     switch (activeTab) {
       case "apply-status":
-        return <div></div>;
+        return <ApplyStatus />;
       case "offered-job":
         return <div></div>;
       case "saved-job":

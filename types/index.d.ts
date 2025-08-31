@@ -40,3 +40,12 @@ export interface ApplyStatus {
   label: string;
   value: string;
 }
+
+export interface SavedJobs {
+  image: string;
+  jobTitle: string;
+  companyName: string;
+  jobType: string;
+  location: string;
+  timeLeft: number;
+}
