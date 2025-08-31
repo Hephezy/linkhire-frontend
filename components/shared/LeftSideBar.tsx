@@ -33,12 +33,14 @@ const LeftSideBar = () => {
                 href={item.path}
                 className={` ${isActive ? "py-3 bg-[color:var(--accentTwo)]" : ""} flex pl-3 flex-row gap-2 items-center w-full`}
               >
-                <Image
-                  src={item.image}
-                  alt={item.label}
-                  width={24}
-                  height={24}
-                />
+                {item.image ? (
+                  <Image
+                    src={item.image}
+                    alt={item.label}
+                    width={24}
+                    height={24}
+                  />
+                ) : null}
                 <h2 className='text-base font-semibold'>{item.label}</h2>
               </Link>
             )
